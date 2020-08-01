@@ -1,5 +1,5 @@
 {
-  "name": "projeto-1",
+  "name": "discord-bot-typescript-boilerplate",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "license": "MIT",
