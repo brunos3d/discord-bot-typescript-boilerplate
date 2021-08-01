@@ -1,8 +1,7 @@
-import { Client, Intents } from 'discord.js';
+import { Client } from 'discord.js';
+import config from './config';
 
-import config from './config.json';
-
-const DISCORD_CLIENT = new Client({ ws: { intents: Intents.ALL } });
+const DISCORD_CLIENT = new Client(config.client);
 
 DISCORD_CLIENT.on('ready', async () => {
     console.log(`Logged in as ${DISCORD_CLIENT.user?.tag}!`);

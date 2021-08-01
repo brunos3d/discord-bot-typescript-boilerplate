@@ -37,3 +37,10 @@ or
 ```sh
 $ yarn build && yarn start
 ```
+
+## Running on Docker
+
+```sh
+$ docker build -t discord-bot .
+$ docker run -it --rm -e DISCORD_TOKEN="YOUR TOKEN HERE" --name discord-bot discord-bot
+```

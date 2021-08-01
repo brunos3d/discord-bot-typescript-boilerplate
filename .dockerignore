@@ -1,0 +1,24 @@
+# Logs
+logs
+*.log
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# dotenv environment variables file
+.env
+.env*
+
+# Build output
+dist
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
