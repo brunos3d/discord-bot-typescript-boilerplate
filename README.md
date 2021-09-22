@@ -50,8 +50,8 @@ yarn dev # or cross-env NODE_ENV=development env-cmd -f .env.dev tsnd --transpil
 > ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
 
 ```bash
-docker build -t discord-bot .
-docker run -it --rm -e DISCORD_TOKEN="YOUR TOKEN HERE" --name discord-bot discord-bot
+docker build -t your-app-name .
+docker run -it --rm -e DISCORD_TOKEN="YOUR TOKEN HERE" --name your-app-name your-app-name
 ```
 
 ### With Docker Compose
@@ -81,6 +81,8 @@ Manually
 ```bash
 yarn build
 ```
+
+Startup bot
 
 ```bash
 yarn start # or cross-env NODE_ENV=production env-cmd -f .env node ./dist/index.js
