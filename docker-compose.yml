@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  bot:
+    restart: always
+    container_name: discord-bot-typescript-boilerplate
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
