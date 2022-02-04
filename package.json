@@ -1,20 +1,30 @@
 {
   "name": "discord-bot-typescript-boilerplate",
   "version": "1.0.0",
-  "main": "./dist/index.js",
   "license": "MIT",
+  "main": "./dist/index.js",
   "scripts": {
+    "deploy": "yarn && yarn build && yarn start",
+    "deploy:dev": "yarn && yarn build && env-cmd -f .env.dev yarn start:dev",
+    "build": "yarn tsc",
     "dev": "cross-env NODE_ENV=development env-cmd -f .env.dev tsnd --transpile-only --respawn --no-notify --ignore-watch node_modules ./src/index.ts",
-    "start": "cross-env NODE_ENV=production env-cmd -f .env node ./dist/index.js",
-    "build": "tsc",
-    "deploy": "yarn && yarn build && yarn start"
+    "prod": "cross-env NODE_ENV=production env-cmd -f .env.local tsnd --transpile-only --respawn --no-notify --ignore-watch node_modules ./src/index.ts",
+    "start": "cross-env NODE_ENV=production node ./dist/index.js",
+    "start:dev": "cross-env NODE_ENV=development env-cmd -f .env.dev node ./dist/index.js",
+    "docker": "docker compose up --build -d",
+    "docker:db": "cross-env NODE_ENV=development env-cmd -f .env docker compose -f ./docker-compose.db.yml up --build -d",
+    "docker:dev:db": "cross-env NODE_ENV=development env-cmd -f .env.dev docker compose -f ./docker-compose.db.yml up --build -d"
   },
   "dependencies": {
+    "chalk": "4.1.2",
+    "cron": "^1.8.2",
     "cross-env": "^7.0.3",
-    "discord.js": "^12.2.0",
-    "env-cmd": "^10.1.0"
+    "discord.js": "13.6.0",
+    "env-cmd": "^10.1.0",
+    "mongoose": "^6.2.0"
   },
   "devDependencies": {
+    "@types/cron": "^1.7.3",
     "@types/node": "^16.4.10",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"

@@ -1,91 +1,86 @@
-# discord-bot-typescript-boilerplate
-
-🤖 NODE.TS - Start your next discord bot project in seconds.
+# whizart-bot
 
 ## Installation
 
-Clone project
-
-```
-git clone git@github.com:BrunoS3D/discord-bot-typescript-boilerplate.git your-app-name
-cd your-app-name
-```
-
-Install dependencies
-
-```sh
-yarn install # or just yarn
+```bash
+git clone git@github.com:BrunoS3D/whizart-bot
+cd whizart-bot
 ```
 
 Create environment variable files `.env` and `.env.dev` based on [.env.example](./.env.example) on project root folder
-
-```bash
-# linux / macOS
-cp .env.example .env
-cp .env.example .env.dev
-```
-
-```bash
-# windows
-copy .env.example .env
-copy .env.example .env.dev
-```
-
-## Running on development environment
-
-> ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
-
-Running the bot
-
-```sh
-yarn dev # or cross-env NODE_ENV=development env-cmd -f .env.dev tsnd --transpile-only --respawn --no-notify --ignore-watch node_modules ./src/index.ts
-```
-
-> ⚠ Note that the loaded environment variables file is `.env.dev`
 
 ## Running on production environment
 
 ### With Docker
 
-> ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
-
-```bash
-docker build -t your-app-name .
-docker run -it --rm -e DISCORD_TOKEN="YOUR TOKEN HERE" --name your-app-name your-app-name
-```
-
-### With Docker Compose
-
-> ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
-
 ```bash
 docker compose up -d
 ```
 
-> ⚠ Note that the loaded environment variables file is `.env`
+Or to stop running containers and rebuild cached images
 
-### Without Docker Compose
+```bash
+docker compose up --build -d
+```
 
-> ⚠ Remember to follow the [Installation](#Installation) steps before proceeding
+To see output logs use (<kbd>Ctrl</kbd> + <kbd>C</kbd> to stop watching logs)
 
-Directly
+```bash
+docker compose logs -f
+```
+
+### Without Docker
+
+#### Automated
+
+Start database container with docker
+
+```bash
+yarn docker:db
+```
+
+Build and start bot client
 
 ```bash
 yarn deploy
 ```
 
-> ⚠ Note that the loaded environment variables file is `.env`
+#### Manual
 
-Manually
+Install dependencies
+
+```bash
+yarn install # or just yarn
+```
+
+Build output
 
 ```bash
 yarn build
 ```
 
-Startup bot
+Running app
 
 ```bash
-yarn start # or cross-env NODE_ENV=production env-cmd -f .env node ./dist/index.js
+yarn start
 ```
 
-> ⚠ Note that the loaded environment variables file is `.env`
+## Running on development environment
+
+Install dependencies
+
+```bash
+yarn install # or just yarn
+```
+
+Then run mongodb
+
+```bash
+yarn docker:dev:db
+```
+
+After doing this run project with following command
+
+```bash
+yarn dev
+```
